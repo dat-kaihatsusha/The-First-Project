@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homeloggv/css/style-add-sv.css'?>">
+</head>
+<body>
+
+<br>
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=home-log-gv';?>">Quay lại</a></button>
+
+<h1 id="title">Trang thêm sinh viên</h1>
+
+<?php
+if (!empty($this->dataView['loi']))
+{
+    echo '<p class="err">'. implode('<br>', $this->dataView['loi']).'</p>';
+}
+if (!empty($this->dataView['mess']))
+{
+    echo '<p class="msg">'. implode('<br>', $this->dataView['mess']).'</p>';
+}
+?>
+
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>Mã SV: </td>
+            <td>
+                <input type="text" name="txt_masv" placeholder="Nhập mã sv">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Họ tên</td>
+            <td>
+                <input type="text" name="txt_hoTen" placeholder="Nhập họ tên">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Giới tính</td>
+            <td>
+                <input type="radio" name="gioiTinh" value=0 checked> Nam
+                &nbsp&nbsp&nbsp
+                <input type="radio" name="gioiTinh" value=1> Nữ
+            </td>
+        </tr>
+
+        <tr>
+            <td>Ngày sinh</td>
+            <td>
+                <input type="date" name="ngaySinh">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Lớp</td>
+            <td>
+                <select name="slx_lop">
+                    <option>Chọn lớp</option>
+                    <?php
+
+                    foreach ($this->dataView['list_lop'] as $row)
+                    {
+                        echo "<option value='{$row['MaLop']}'>{$row['tenLop']}</option>";
+                    }
+
+                    ?>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="reset" value="Nhập lại">
+                <input type="submit" name="sub" value="Thêm">
+            </td>
+<!--            <td></td>-->
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
+
+

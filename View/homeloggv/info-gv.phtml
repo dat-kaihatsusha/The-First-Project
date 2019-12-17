@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homeloggv/css/style-info-gv.css' ?>">
+<!--    <style>-->
+<!--        table, tr, td-->
+<!--        {-->
+<!--            border: 1px solid black;-->
+<!--            border-collapse: collapse;-->
+<!--            padding: 10px;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!---->
+<!--        table-->
+<!--        {-->
+<!--            width: 500px;-->
+<!--            margin: auto;-->
+<!--        }-->
+<!---->
+<!--        #ttgv-->
+<!--        {-->
+<!--            color: red;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!---->
+<!--        #abc-->
+<!--        {-->
+<!--            padding: 0px;-->
+<!--            margin: 0px;-->
+<!--            height: 30px;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<br>
+<h1 id="ttgv">Trang thông tin giáo viên</h1>
+
+<table>
+    <tr>
+        <td>Username</td>
+        <td>Họ tên</td>
+        <td>Giới tính</td>
+        <td>Ngày sinh</td>
+    </tr>
+
+    <?php
+    if ($this->dataView['gioiTinh_gv'] == 1)
+    {
+        $gt = 'Nữ';
+    }
+    else $gt = 'Nam';
+
+    $ns = date('d/m/Y', strtotime($this->dataView['ngaySinh_gv']));
+
+    echo "<tr>
+              <td>{$this->dataView['user_gv']}</td>
+              <td>{$this->dataView['hoTen_gv']}</td>
+              <td>{$gt}</td>
+              <td>{$ns}</td>
+          </tr>"
+    ?>
+</table>
+
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=home-log-gv';?>">Quay lại</a></button>
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=update-pass-gv';?>">Đổi mật khẩu</a></button>
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=edit-info-gv';?>">Sửa thông tin</a></button>
+
+</body>
+</html>
+
+

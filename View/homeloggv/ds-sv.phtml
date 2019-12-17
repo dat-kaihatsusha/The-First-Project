@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homeloggv/css/style-ds-sv.css' ?>">
+</head>
+<body>
+<br>
+<h1 id="dssv">DANH SÁCH SINH VIÊN</h1>
+
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=home-log-gv';?>">Quay lại</a></button>
+
+<br><br>
+
+<form action="" method="post">
+    MaSV tìm kiếm: <input type="text" name="txt_masv" placeholder="Nhap masv can tim kiem" value="<?php echo @"{$this->dataView['msv_slt']}" ;?>">
+    <br>
+    Họ tên tìm kiếm: <input type="text" name="txt_name" placeholder="Nhập họ tên cần tìm kiếm" value="<?php echo @"{$this->dataView['ten_slt']}" ;?>">
+    <br>
+    <select name="slx_lop">
+        <option value="">Chọn lớp</option>
+        <?php
+
+        foreach ($this->dataView['list_lop'] as $row)
+        {
+            if ($row['MaLop'] == $this->dataView['maLop_slt'])
+            {
+                $selected = ' selected ';
+            }
+            else $selected = '';
+            echo "<option {$selected} value='{$row['MaLop']}'>{$row['tenLop']}</option>";
+        }
+
+        ?>
+
+    </select>
+    <input type="submit" name="sub" value="Tìm kiếm">
+</form>
+
+<br>
+<table>
+    <tr>
+        <td>MaSV</td>
+        <td>Họ tên</td>
+        <td>Giới tính</td>
+        <td>Ngày sinh</td>
+        <td>Lớp</td>
+        <th></th>
+    </tr>
+
+    <?php
+
+//    echo "<pre>";
+//    print_r($this->dataView);
+//    echo "</pre>";
+
+    foreach ($this->dataView['dssv'] as $row)
+    {
+        if ($row['gioiTinh_sv'] == 1)
+        {
+            $gt = 'Nữ';
+        }
+        else $gt = 'Nam';
+
+        $ns = date('d/m/Y', strtotime($row['ngaySinh_sv']));
+
+        $link_edit = "<a href='http://localhost/PROJECT/?ct=home-log-gv&act=edit-info-sv&masv={$row['MaSV']}'>Sửa</a>";
+        $link_del = "<a href='http://localhost/PROJECT/?ct=home-log-gv&act=del-info-sv&masv={$row['MaSV']}'>Xóa</a>";
+
+
+        echo "<tr>
+                  <td>{$row['MaSV']}</td>
+                  <td>{$row['hoTen_sv']}</td>
+                  <td>{$gt}</td>
+                  <td>{$ns}</td>
+                  <td>{$row['tenLop']}</td>
+                  <td><button>{$link_edit}</button>&nbsp&nbsp&nbsp<button>{$link_del}</button></td>
+              </tr>";
+    }
+
+    ?>
+</table>
+
+</body>
+</html>
+
+

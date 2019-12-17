@@ -1,0 +1,19 @@
+table, tr, td
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+
+table
+{
+    width: 800px;
+    margin: auto;
+}
+
+.err
+{
+    color: red;
+    background-color: yellow;
+}

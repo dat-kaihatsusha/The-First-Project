@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homelogsv/css/style-bai-tap.css' ?>">
+</head>
+<body>
+<h1>Đây là trang xem bài tập</h1>
+
+<button><a href="<?php echo base_path .'/?ct=home-log-sv&act=home-log-sv';?>">Quay lại</a></button>
+
+<br><br>
+
+<?php
+if (!empty($this->dataView['loi']))
+{
+    echo '<p class="err">'. implode('<br>', $this->dataView['loi']).'</p>';
+}
+?>
+
+
+<?php
+if (!empty($this->dataView['diem']))
+{
+    echo '<p class="msg">'."Điểm của bạn: " .$this->dataView['diem'] .'</p>';
+}
+?>
+
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>STT</td>
+            <td>Nội dung</td>
+            <td>Đáp án A</td>
+            <td>Đáp án B</td>
+            <td>Đáp án C</td>
+            <td>Đáp án D</td>
+        </tr>
+
+        <?php
+
+        foreach ($this->dataView['bt'] as $row)
+        {
+            echo "<tr>
+                        <td>Câu {$row['stt']}</td>  
+                        <td>{$row['noiDung']}</td>  
+                        <td><input type='radio' name='{$row['stt']}' value='A' checked>{$row['Da_A']}</td>  
+                        <td><input type='radio' name='{$row['stt']}' value='B'>{$row['Da_B']}</td>  
+                        <td><input type='radio' name='{$row['stt']}' value='C'>{$row['Da_C']}</td>  
+                        <td><input type='radio' name='{$row['stt']}' value='D'>{$row['Da_D']}</td>  
+                  </tr>";
+        }
+
+        ?>
+
+        <tr>
+            <td colspan="6">
+                <input type="reset" value="Làm lại">
+                <input type="submit" name="sub" value="Xem điểm">
+            </td>
+        </tr>
+
+
+    </table>
+</form>
+
+
+</body>
+</html>
+
+

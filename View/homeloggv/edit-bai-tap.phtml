@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homeloggv/css/style-edit-bai-tap.css' ?>">
+</head>
+<body>
+<br>
+<h1>Sửa câu hỏi <?php echo "{$this->dataView['stt']}" ?> </h1>
+
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=bai-tap';?>">Quay lại</a></button>
+
+<form action="" method="post" id="f_edit">
+    <table>
+        <tr>
+            <td>Nội dung</td>
+            <td><?php echo "{$this->dataView['noiDung']}" ?></td>
+            <td>
+                <textarea name="ndung" form="f_edit"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án A</td>
+            <td><?php echo "{$this->dataView['Da_A']}" ?></td>
+            <td>
+                <textarea name="daa" form="f_edit"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án B</td>
+            <td><?php echo "{$this->dataView['Da_B']}" ?></td>
+            <td>
+                <textarea name="dab" form="f_edit"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án C</td>
+            <td><?php echo "{$this->dataView['Da_C']}" ?></td>
+            <td>
+                <textarea name="dac" form="f_edit"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án D</td>
+            <td><?php echo "{$this->dataView['Da_D']}" ?></td>
+            <td>
+                <textarea name="dad" form="f_edit"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án</td>
+            <td><?php echo "{$this->dataView['dap_an_gv']}" ?></td>
+            <td>
+                <select name="slx_da">
+                    <option value="">Chọn đáp án</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <input type="reset" value="Reset">
+                <input type="submit" name="sub" value="Save">
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
+

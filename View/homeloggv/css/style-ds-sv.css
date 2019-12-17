@@ -1,0 +1,21 @@
+table, tr, td
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+
+table
+{
+    width: 1000px;
+    margin: auto;
+}
+
+#dssv
+{
+    color: red;
+    text-align: center;
+}
+
+

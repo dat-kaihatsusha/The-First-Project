@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homeloggv/css/style-bai-tap.css' ?>">
+</head>
+<body>
+<br>
+<h1>Đây là trang xem bài tập</h1>
+
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=home-log-gv';?>">Quay lại</a></button>
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=del-bai-tap';?>">Xóa bài tập</a></button>
+
+<br><br>
+
+<?php
+if (!empty($this->dataView['loi']))
+{
+    echo '<p class="err">'. implode('<br>', $this->dataView['loi']).'</p>';
+}
+?>
+
+<table>
+    <tr>
+        <td>STT</td>
+        <td>Nội dung</td>
+        <td>Đáp án A</td>
+        <td>Đáp án B</td>
+        <td>Đáp án C</td>
+        <td>Đáp án D</td>
+        <td>Đáp án</td>
+        <th></th>
+    </tr>
+
+    <?php
+
+    foreach ($this->dataView as $row)
+    {
+        $link_edit = "<a href='http://localhost/PROJECT/?ct=home-log-gv&act=edit-bai-tap&stt={$row['stt']}'>Sửa</a>";
+        echo "<tr>
+                    <td>Câu {$row['stt']}</td>  
+                    <td>{$row['noiDung']}</td>  
+                    <td>{$row['Da_A']}</td>  
+                    <td>{$row['Da_B']}</td>  
+                    <td>{$row['Da_C']}</td>  
+                    <td>{$row['Da_D']}</td>  
+                    <td>{$row['dap_an_gv']}</td> 
+                    <td><button>{$link_edit}</button></td> 
+              </tr>";
+    }
+
+    ?>
+
+
+</table>
+
+
+</body>
+</html>
+

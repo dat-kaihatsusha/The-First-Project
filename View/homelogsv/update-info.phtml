@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<br>
+<button><a href="<?php echo base_path; ?>/?ct=home-log-sv&act=show-info-sv">Quay lại</a></button>
+<h1>Đổi mật khẩu MaSV: <?php echo "{$_SESSION['auth_sv']['MaSV']}"; ?> </h1>
+
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>Password cũ: </td>
+            <td>
+                <label for="op"></label>
+                <input type="password" name="old_p" id="op" placeholder="Nhập pass cũ">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Password mới </td>
+            <td>
+                <label for="np"></label>
+                <input type="password" name="new_p" id="np" placeholder="Nhập pass mới">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Nhập lại Password mới: </td>
+            <td>
+                <label for="np2"></label>
+                <input type="password" name="new_p2" id="np2" placeholder="Nhập lại pass mới">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <label for="sub"></label>
+                <input type="submit" name="sub" value="Lưu">
+            </td>
+            <!--            <td></td>-->
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

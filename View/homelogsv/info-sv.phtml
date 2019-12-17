@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homelogsv/css/style-info-sv.css' ?>">
+</head>
+<body>
+<h1 id="ttsv">Trang thông tin sinh viên - MaSV: <?php echo "{$this->dataView['MaSV']}";?></h1>
+
+<table>
+    <tr>
+        <td>MaSV</td>
+        <td>Họ tên</td>
+        <td>Giới tính</td>
+        <td>Ngày sinh</td>
+        <td>Lớp</td>
+    </tr>
+
+    <?php
+    if ($this->dataView['gioiTinh_sv'] == 1)
+    {
+        $gt = 'Nữ';
+    }
+    else $gt = 'Nam';
+
+    $ns = date('d/m/Y', strtotime($this->dataView['ngaySinh_sv']));
+
+    echo "<tr>
+                  <td>{$this->dataView['MaSV']}</td>
+                  <td>{$this->dataView['hoTen_sv']}</td>
+                  <td>{$gt}</td>
+                  <td>{$ns}</td>
+                  <td>{$this->dataView['tenLop']}</td>
+              </tr>"
+    ?>
+</table>
+
+<button><a href="<?php echo base_path .'/?ct=home-log-sv&act=home-log-sv';?>">Quay lại</a></button>
+<button><a href="<?php echo base_path .'/?ct=home-log-sv&act=update-info-sv';?>">Đổi mật khẩu</a></button>
+
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homeloggv/css/style-edit-info-sv.css' ?>">
+</head>
+<body>
+<br>
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=show-ds-sv';?>">Quay lại</a></button>
+<h1 id="edit">Sửa thông tin sinh viên: <?php echo "{$this->dataView['sv_slt']['MaSV']}"; ?></h1>
+
+<h2>Nhập thông tin mới: </h2>
+
+<?php
+    if (!empty($this->dataView['loi']))
+    {
+        echo '<p class="err">'. implode('<br>', $this->dataView['loi']).'</p>';
+//        print_r($this->dataView['loi']);
+    }
+?>
+
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>Họ tên: </td>
+            <td>
+                <?php
+                echo "{$this->dataView['sv_slt']['hoTen_sv']}";
+                ?>
+            </td>
+            <td>
+                <input type="text" name="txt_ten" placeholder="<?php echo "{$this->dataView['sv_slt']['hoTen_sv']}"; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Giới tính: </td>
+            <td>
+                <?php
+                if ($this->dataView['sv_slt']['gioiTinh_sv'] == 1)
+                {
+                    $gt = 'Nữ';
+                }
+                else
+                {
+                    $gt = 'Nam';
+                }
+                echo $gt;
+                ?>
+            </td>
+            <td>
+                <?php
+                    if ($this->dataView['sv_slt']['gioiTinh_sv'] == 0)
+                    {
+                        echo "<input type=\"radio\" name=\"gt\" value=0 checked> Nam
+                                &nbsp&nbsp&nbsp
+                                <input type=\"radio\" name=\"gt\" value=1> Nữ";
+                    }
+                    else if ($this->dataView['sv_slt']['gioiTinh_sv'] == 1)
+                    {
+                        echo "<input type=\"radio\" name=\"gt\" value=\"0\"> Nam
+                                &nbsp&nbsp&nbsp
+                                <input type=\"radio\" name=\"gt\" value=\"1\" checked> Nữ";
+                    }
+                ?>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Ngày sinh: </td>
+            <td>
+                <?php
+                $ns = date ('d/m/Y', strtotime($this->dataView['sv_slt']['ngaySinh_sv']));
+                echo $ns;
+                ?>
+            </td>
+            <td>
+                <input type="date" name="ns" value="<?php echo "{$this->dataView['sv_slt']['ngaySinh_sv']}"; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Lớp: </td>
+            <td>
+                <?php
+                echo "{$this->dataView['sv_slt']['tenLop']}";
+                ?>
+            </td>
+            <td>
+                <select name="slx_lop">
+                    <?php
+                        foreach ($this->dataView['list_lop'] as $row)
+                        {
+                            if ($row['MaSV'] == $this->dataView['sv_slt']['MaLop'])
+                            {
+                                $selected = ' selected ';
+                            }
+                            else $selected = '';
+                            echo "<option {$selected} value='{$row['MaLop']}'>{$row['tenLop']}</option>";
+                        }
+                    ?>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <input type="reset" value="Nhập lại">
+                <input type="submit" name="sbm" value="Lưu">
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
+

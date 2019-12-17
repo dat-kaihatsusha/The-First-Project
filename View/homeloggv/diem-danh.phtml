@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<!--    <link rel="stylesheet" type="text/css" href="--><?php //echo base_path.'/View/homeloggv/css/style-diem-danh.css' ?><!--">-->
+    <style>
+        body
+        {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        table, tr, td
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table
+        {
+            width: 90%;
+            margin: auto;
+        }
+
+        h1
+        {
+            color: red;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+<br>
+<!--<button><a href="--><?php //echo base_path .'/?ct=home-log-gv&act=home-log-gv';?><!--">Quay lại</a></button>-->
+
+    <h1 id="title">Đây là trang điểm danh</h1>
+
+    <button><a href="<?php echo base_path .'/?ct=home-log-gv&act=home-log-gv';?>">Quay lại</a></button>
+
+    <p>Day: <?php echo date("l jS \of F Y ") . "<br>";?> </p>
+
+    <br><br>
+
+    <form action="" method="post">
+        Mã SV tìm kiếm: <input type="text" name="search_msv" placeholder="Nhập mã sv tìm kiếm">
+        <br>
+        Họ tên tìm kiếm: <input type="text" name="search_name" placeholder="Nhập tên sv tìm kiếm">
+        <br>
+        <select name="slx_lop">
+            <option value="">Chọn lớp</option>
+            <?php
+            foreach ($this->dataView['list_lop'] as $row)
+            {
+                if ($row['MaLop'] == $this->dataView['maLop_slt'])
+                {
+                    $selected = ' selected ';
+                }
+                else $selected = '';
+                echo "<option {$selected} value='{$row['MaLop']}'>{$row['tenLop']}</option>";
+            }
+            ?>
+        </select>
+        <input type="submit" name="search" value="Tìm kiếm">
+    </form>
+
+
+    <br><br>
+    <form action="" method="post">
+        <table>
+            <tr>
+                <td>Mã SV</td>
+                <td>Họ tên</td>
+                <td>Số buổi đúng giờ</td>
+                <td>Số buổi đi muộn</td>
+                <td>Số buổi vắng có phép</td>
+                <td>Số buối vắng không phép</td>
+                <td>Đúng giờ</td>
+                <td>Đi muộn</td>
+                <td>Vắng có phép</td>
+                <td>Vắng không phép</td>
+            </tr>
+
+            <?php
+            foreach ($this->dataView['dsdd'] as $row)
+            {
+                echo "<tr>
+                            <td>{$row['MaSV']}</td>
+                            <td>{$row['hoTen_sv']}</td>
+                            <td>{$row['sb_dung_gio']}</td>
+                            <td>{$row['sb_di_muon']}</td>
+                            <td>{$row['sb_vang_cp']}</td>
+                            <td>{$row['sb_vang_kp']}</td>
+                            <td><input type='radio' name='{$row['MaSV']}' value=0></td>
+                            <td><input type='radio' name='{$row['MaSV']}' value=1></td>
+                            <td><input type='radio' name='{$row['MaSV']}' value=2></td>
+                            <td><input type='radio' name='{$row['MaSV']}' value=3></td>
+                      </tr>";
+            }
+            ?>
+        </table>
+        <br>
+        <input type="submit" name="sub" value="Lưu">
+
+    </form>
+
+
+</body>
+</html>
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homeloggv/css/style-edit-info-gv.css' ?>">
+</head>
+<body>
+<br>
+<h1>Đây là trang sửa thông tin giáo viên !!!</h1>
+
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=show-info-gv';?>">Quay lại</a></button>
+
+<?php
+if (!empty($this->dataView['loi']))
+{
+    echo '<p class="err">'. implode('<br>', $this->dataView['loi']).'</p>';
+}
+?>
+
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>Username</td>
+            <td>
+                <input type="text" name="txt_usn" placeholder="<?php echo "{$this->dataView['user_gv']}"; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Họ tên</td>
+            <td>
+                <input type="text" name="txt_name" placeholder="<?php echo "{$this->dataView['hoTen_gv']}"; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Giới tính</td>
+            <td>
+                <?php
+                if ($this->dataView['gioiTinh_gv'] == 0)
+                {
+                    echo "<input type=\"radio\" name=\"gt\" value=0 checked> Nam
+                                &nbsp&nbsp&nbsp
+                                <input type=\"radio\" name=\"gt\" value=1> Nữ";
+                }
+                else if ($this->dataView['gioiTinh_gv'] == 1)
+                {
+                    echo "<input type=\"radio\" name=\"gt\" value=\"0\">Nam
+                           &nbsp&nbsp&nbsp
+                           <input type=\"radio\" name=\"gt\" value=\"1\" checked>Nữ";
+                }
+                ?>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Ngày sinh</td>
+            <td>
+                <input type="date" name="ns" value="<?php echo "{$this->dataView['ngaySinh_gv']}"; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="reset" value="Reset">
+                <input type="submit" name="sub" value="Save">
+
+            </td>
+<!--            <td></td>-->
+<!--            <td></td>-->
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
+

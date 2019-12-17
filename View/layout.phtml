@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/cssLayout/style-lay-out.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/cssLayout/font-awesome.min.css' ?>">
+</head>
+
+<body>
+<div id="page">
+    <div id="main-header">
+        <div id="logo">Logo</div>
+
+        <div id="logout">
+            <a href="<?php echo base_path; ?>/?ct=log-in&act=log-out">Đăng xuât</a>
+        </div>
+
+        <div class="clr"></div>
+    </div>
+
+
+    <div id="main">
+        <div id="main-nav">
+            <div class="name-nav">Username</div>
+
+            <hr>
+
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fa fa-home"></i>
+                        &nbsp;Trang chủ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-book"></i>
+                        &nbsp;Bài tập
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-bullhorn"></i>
+                        &nbsp;Nội quy
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-user"></i>
+                        &nbsp;Sửa thông tin
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div id="main-aside">
+            <div id="main-page">
+                <?php $this->ShowContent(); ?>
+            </div>
+
+            <div id="main-footer">
+                <div id="main-ftr-above">
+                    <div id="contact" >
+                        <br>
+                        <i class="fa fa-phone-square"></i>
+                        Hotline: 0123456789
+                        &nbsp; &nbsp;
+                        <i class="fa fa-envelope"></i>
+                        Email: abcxyz@gmail.com
+                    </div>
+
+                    <div id="address">
+                        <ul>
+                            <li>Cơ sở 1: Tầng 2, Trung tâm đào tạo CNTT và Truyền Thông, Số 1 Hoàng Đạo Thúy, Quận Thanh Xuân, Hà Nội.</li>
+                            <li>Cơ sở 2: Tầng 1, Nhà A2, Trường Đại học Sân Khấu - Điện Ảnh Hà Nội. Đường Hồ Tùng Mậu, Phường Mai Dịch, Quận Cầu Giấy, Hà Nội </li>
+                            <li>Cơ sở 3: Tầng 7, Số 51, Đường Lê Đại Hành, Phường Lê Đại Hành, Quận Hai Bà Trưng, Hà Nội</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="main-ftr-bottom">
+                    Copy right &#169; 2019
+                </div>
+            </div>
+        </div>
+
+        <div class="clr"></div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title></title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Đây là file Layout.phtml</h1>-->
+<!---->
+<!---->
+<!---->
+<!--<hr>-->
+<!--<b>Khu vực này hiển thị nội dung trong view</b>-->
+<!--<br>-->
+<?php //$this->showContent();?>
+<!--<hr>-->
+<!--</body>-->
+<!--</html>-->

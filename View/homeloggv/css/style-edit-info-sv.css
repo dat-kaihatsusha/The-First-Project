@@ -1,0 +1,27 @@
+table, tr, td
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+
+table
+{
+    width: 500px;
+    margin: auto;
+}
+
+#edit
+{
+    color: red;
+    text-align: center;
+}
+
+.err
+{
+    color: red;
+    background-color: yellow;
+}
+
+

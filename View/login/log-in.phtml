@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/login/css/style-log-in.css' ?>">
+</head>
+
+<body>
+
+<br>
+<button><a href="<?php echo base_path;?>">Quay lại</a></button>
+
+
+<?php
+
+if (!empty($this->dataView['loi']))
+{
+    echo "<p style='color: red; background-color: yellow;'>" .implode("<br>", $this->dataView['loi']) ."</p>";
+}
+
+?>
+
+<div id="main-page">
+
+    <div id="lable-login">
+        Đăng nhập
+    </div>
+
+    <div id="main-signup">
+        <form action="" method="post">
+            <input type="text" name="username" class="input-login" placeholder="Nhập tên đăng nhập">
+            <br>
+
+            <input type="password" name="pwd" class="input-login" placeholder="Nhập mật khẩu">
+            <br>
+
+            <input type="submit" name="sub" id="btnLogin" value="Đăng nhập">
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title></title>-->
+<!--    <link rel="stylesheet" type="text/css" href="--><?php //echo base_path.'/View/login/css/style-log-in.css' ?><!--">-->
+<!--</head>-->
+<!--<body>-->
+<!---->
+<!--<br>-->
+<!--<button><a href="--><?php //echo base_path;?><!--">Quay lại</a></button>-->
+<!---->
+<!--<h1>Đây là trang chu Login</h1>-->
+<!---->
+<?php
+//
+//if (!empty($this->dataView['loi']))
+//{
+//    echo "<p style='color: red; background-color: yellow;'>" .implode("<br>", $this->dataView['loi']) ."</p>";
+//}
+//
+//?>
+<!---->
+<!--<form action="" method="post">-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td>Tên đăng nhập: </td>-->
+<!--            <td>-->
+<!--                <label for="m"></label>-->
+<!--                <input type="text" name="username" id="m" placeholder="Nhập tên đăng nhập">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!---->
+<!--        <tr>-->
+<!--            <td>Mật khẩu: </td>-->
+<!--            <td>-->
+<!--                <label for="p"></label>-->
+<!--                <input type="password" name="pwd" id="p" placeholder="Nhập password">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!---->
+<!--        <tr>-->
+<!--            <td colspan="2">-->
+<!--                <input type="submit" name="sub" value="Đăng nhập">-->
+<!--            </td>-->
+<!--                      <td></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</form>-->
+<!---->
+<!---->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+

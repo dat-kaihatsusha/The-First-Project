@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_path.'/View/homeloggv/css/style-giao-bai.css' ?>">
+</head>
+<body>
+<br>
+<h1>Đây là trang giao bài</h1>
+
+<button><a href="<?php echo base_path .'/?ct=home-log-gv&act=home-log-gv';?>">Thoát</a></button>
+
+<?php
+if (!empty($this->dataView['loi']))
+{
+    echo '<p class="err">'. implode('<br>', $this->dataView['loi']).'</p>';
+}
+?>
+
+<form action="" method="post" id="qtform">
+
+    <table>
+        <tr>
+            <td colspan="2">Câu hỏi: <?php echo "{$this->dataView['stt']}" ?> </td>
+<!--            <td></td>-->
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <textarea name="ndung" form="qtform"></textarea>
+            </td>
+<!--            <td></td>-->
+        </tr>
+
+        <tr>
+            <td>Đáp án A: </td>
+            <td>
+                <textarea name="daa" form="qtform"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án B: </td>
+            <td>
+                <textarea name="dab" form="qtform"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án C: </td>
+            <td>
+                <textarea name="dac" form="qtform"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án D: </td>
+            <td>
+                <textarea name="dad" form="qtform"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Đáp án: </td>
+            <td>
+                <select name="slx_da">
+                    <option value="">Chọn đáp án</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="reset" value="RESET">
+                <input type="submit" name="sub" value="NEXT">
+<!--                --><?php
+//
+//                $link_next = "<a href='http://localhost/PROJECT/?ct=home-log-gv&act=giao-bai&stt={$this->dataView['stt']}'>NEXT</a>";
+//
+//                echo "<button>{$link_next}</button>"
+//
+//                ?>
+            </td>
+        </tr>
+
+    </table>
+
+
+</form>
+
+
+
+</body>
+</html>
